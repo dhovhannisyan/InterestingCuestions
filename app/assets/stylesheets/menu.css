@@ -1,0 +1,63 @@
+
+.bg-brown {
+
+  background: black;
+  
+}
+
+.logo {
+
+  color: #fff;
+  font-family:Arial Black;
+  
+}
+
+.navbar-brand {
+
+  margin-right: 2%;
+
+}
+
+.nav-link {
+  
+  color: #fff !important;
+  font-family: Montserrat;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding: 18px 25px 15px 25px !important;
+  border-bottom: 3px solid black;
+
+}
+
+.nav-link:hover {
+
+  color: black !important;
+  border-bottom-color: red;
+  
+}
+
+.nav-item:hover {
+
+  background: #fff;
+  
+}
+
+.navbar {
+
+  padding: 0 15px !important;
+  opacity: 0.9;
+
+}
+
+.navbar-toggler {
+
+  margin: 3px 0 5px 0;
+  
+}
+
+.nav-link:focus {
+
+  outline: none;
+
+}
+

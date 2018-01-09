@@ -1,0 +1,51 @@
+/*
+*=require 'menu.css'
+*/
+
+@import 'bootstrap';
+
+
+
+.main_image {
+
+  height: 100%; 
+  width: 100%;
+  
+}
+
+.tex {
+
+  font-size: 18px;
+  font-family: Montserrat;
+  color: #444;
+  margin-top: 3%;
+  padding: 10px
+}
+
+.hat {
+
+  font-family:Arial Black;
+  padding: 20px 20px 20px 40px;
+  background: #444;
+  font-size: 20px;
+  color: #fff;
+  opacity: 0.7;
+  letter-spacing: 2px;
+
+}
+
+
+.foot {
+	height: 70px;
+	background: black;
+
+  color: #fff
+}
+
+.modal-footer {
+
+  border-top: none;
+  justify-content: flex-start; 
+}
+
+

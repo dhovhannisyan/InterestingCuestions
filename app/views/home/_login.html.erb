@@ -1,0 +1,55 @@
+
+<% if @login_errs %>
+  <div style="display: none" id="login-error"><%= @login_errs %></div>
+<% end %>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Login</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="/login" method="POST">
+          <input name="utf8" type="hidden" value="✓">
+          <input type="hidden" name="authenticity_token" value="cCPlmv1weJ50f651Bp3OZzyM+PoMocY8HGdsJQtZ41c17nn/5Pc3ClFb1dmOczPchV2iheFh6NnxLD89SD6udA==">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email"
+                                        <% if @inputed %>
+                                          value="<%= @inputed[:email] %>" 
+                                        <% end %> >
+            <div style="font-size: 14px; color: red; margin-top:10px; margin-left: 5px">
+              <%if @login_errs %>
+                <%= @login_errs[:email] %>
+              <% end %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" name="password"
+                                          <% if @inputed %>
+                                            value="<%= @inputed[:password] %>" 
+                                          <% end %> >
+            <div style="font-size: 14px; color: red; margin-top:10px; margin-left: 5px">
+              <%if @login_errs %>
+                <%= @login_errs[:password] %>
+              <% end %>
+            </div>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox"> Remember me
+            </label>
+          </div>
+          <button type="submit" class="btn btn-secondary" href="#" >Login</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" style="float: right;" id="link">Close</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

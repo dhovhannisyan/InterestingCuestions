@@ -1,0 +1,54 @@
+
+//= require rails-ujs
+//= require turbolinks
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+
+    
+
+
+    // screen.width 
+    
+    function smalls() {
+    	document.getElementsByClassName('navbar-brand')[0].style.cssText = 'margin-left: 10px !important';
+    	document.getElementsByClassName('navbar')[0].style.cssText = 'opacity: 0.95 !important';
+    	var links = document.getElementsByClassName('nav-link');
+      for (var i = 0; i < links.length; i++) {
+	      links[i].style.cssText = 'padding-left: 10px !important';
+      }
+    }
+    
+    
+
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 68) {
+        $('#nav').addClass('fixed-top');
+        $(".hat").remove();
+      } else {
+        $('div').removeClass('fixed-top');
+      }
+    });
+
+
+
+    function removeBorder(){
+      document.getElementById('mod').style.border = 'none' 
+    }
+
+
+
+    
+    $(document).ready(function(){
+      if($("#sign-error").text() != '') {
+        $("#myModal1").modal();
+      }
+      if($("#login-error").text() != '') {
+        $("#myModal").modal();
+      }
+    });
+
+    name += '%%%%%%%%%%%';
+    var b = 'other';
+
+    

@@ -1,0 +1,124 @@
+
+<%= render 'menu' %>
+<div class="container" style="margin-top: 60px">
+  
+ 
+  <% @questions.each_with_index  do |q, i| %>
+    <div style="padding: 10px; display: inline-block; margin-top: 20px; background: black; color: #fff"">
+
+		  <%= "#{i+1}. #{q.subject}" %>
+	  </div>
+    <div style="margin-top: 20px" <%= "id = q#{i}"%> >
+      <% q.answers.each_with_index do |a, j| %>
+        <span style="padding: 10px; display: inline-block; margin-right: 10px;margin-bottom: 20px; background: #00297A; color: #fff; border-radius: 2px" <% if q.rigth_answer == a.subject %>
+                                                                  <%= "id = r#{i}"%>
+                                                                <% else %>
+                                                                  <%= "class = w#{i}"%>
+                                                                <% end %>
+
+          
+        ><%= "#{a.subject}" %></span>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= render 'setings'%>
+  
+</div>
+<script type="text/javascript">
+  
+	$(document).ready(function(){
+
+		var length = <%= @questions.length %>
+		var r = [];
+		<% @rigths.each_with_index do |a, i|%> 
+      r[<%= i %>] = <%= a %>
+		<% end %>
+    
+    var wrongs;
+    var k;
+		for (var i = 0; i < length; i++) {
+			document.getElementById('r' + i).onclick = function(e) {
+				this.style.background = '#057005';
+			}
+			
+				wrongs = document.getElementsByClassName('w' + i);
+				
+			  for (var j = 0; j < wrongs.length; j++) {
+          k = 0;
+				  wrongs[j].onclick = function(e) {
+				  	console.log(i);
+				    this.style.background = '#BD2400';
+				    document.getElementById('r' + k++).style.background = '#057005';
+			    }
+			  }
+			
+		}
+
+			
+	  
+
+	  // $('#r' + i).click(function() { $(this).addClass("rigth") });
+
+   //    wrongs = $('.w' + i);
+   //    // console.log(wrongs);
+   //    for (var j = 0; j < wrongs.length; j++) {
+   //      k = 0;
+   //     	$(wrongs[j]).click(function() { 
+   //        console.log('id = r' + (k));
+			//  	  $(this).addClass("wrong");
+			//  	  $('#r' + k).addClass("rigth");
+			//  	  k++; 
+   //      });
+   //    }
+
+
+            
+    //    answers = $('#q' + i + ' > span');
+       
+
+    //     for (var j = 0; j < answers.length; j++) {
+        	
+		      
+    //     	// console.log(answers)
+    //     	if(j == r[i]) {
+			 //      $(answers[j]).click(function() {
+		  //         $(this).addClass("rigth");
+    //         });
+		  //     }else {
+		  //     	k = '#r' + i;
+		  //     	$(answers[j]).click(function() {
+    //           $(this).addClass("wrong");
+    //           $(k).addClass("rigth");
+    //         });
+		  //     }
+		  //   }
+		  // }
+		    })
+     
+    
+			
+
+	
+	
+
+	function remove_click(arr) {
+		for (var i = 0; i < arr.length; i++) {
+		  $(arr[i]).unbind("click");
+		}
+	}
+
+	
+</script>
+<style type="text/css">
+
+	.wrong {
+		background: red !important;
+	}
+	.rigth {
+		background: green !important;
+	}
+</style>
+
+
+

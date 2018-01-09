@@ -1,0 +1,74 @@
+<% if @sign_errs %>
+  <div style="display: none" id="sign-error"><%= @sign_errs %></div>
+<% end %>
+
+<div class="modal fade" id="myModal1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Sign Up</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="/registration" method="POST">
+          <input name="utf8" type="hidden" value="✓">
+          <input type="hidden" name="authenticity_token" value="cCPlmv1weJ50f651Bp3OZzyM+PoMocY8HGdsJQtZ41c17nn/5Pc3ClFb1dmOczPchV2iheFh6NnxLD89SD6udA==">
+          <div class="form-group">
+            <label for="fname">Fname:</label>
+            <input class="form-control" id="fname" name="user[fname]"  
+                                        <% if @user %>
+                                          value="<%= @user.fname %>" 
+                                        <% end %> >
+            <div style="font-size: 14px; color: red; margin-top:10px; margin-left: 5px">
+              <%if @sign_errs %>
+                <%= @sign_errs['fname']%>
+              <% end %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lname">Lname:</label>
+            <input class="form-control" id="lname" name="user[lname]"
+                                        <% if @user %>
+                                          value="<%= @user.lname %>" 
+                                        <% end %> >
+            <div style="font-size: 14px; color: red; margin-top:10px; margin-left: 5px">
+              <%if @sign_errs %>
+                <%= @sign_errs['lname']%>
+              <% end %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="user[email]"
+                                        <% if @user %>
+                                          value="<%= @user.email %>" 
+                                        <% end %> >
+            <div style="font-size: 14px; color: red; margin-top:10px; margin-left: 5px">
+              <%if @sign_errs %>
+                <%= @sign_errs['email']%>
+              <% end %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" name="user[password]">
+            <div style="font-size: 14px; color: red; margin-top:10px; margin-left: 5px">
+              <%if @sign_errs %>
+                <%= @sign_errs['password']%>
+              <% end %>
+            </div>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox"> Remember me
+            </label>
+          </div>
+          <button type="submit" class="btn btn-secondary" >Sign Up</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" style="float: right;">Close</button>
+        </form>
+      </div>      
+    </div>
+  </div>
+</div>
